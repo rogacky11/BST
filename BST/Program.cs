@@ -6,7 +6,7 @@ namespace BST
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello BST!");
+            Console.WriteLine(" BST!");
         }
     }
 }
