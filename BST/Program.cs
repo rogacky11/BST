@@ -25,7 +25,7 @@ namespace BST
 
             Console.WriteLine("Minimalna wartość w drzewie: " + minValueNode.value);
             Console.WriteLine("Maksymalna wartość w drzewie: " + maxValueNode.value);
-            Console.WriteLine(bst.root.value);
+            Console.WriteLine("Korzeń: " + bst.root.value);
         }
 
     }
