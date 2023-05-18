@@ -6,25 +6,26 @@ namespace BST
     {
         public static void Main(string[] args)
         {
-            Functions bst = new Functions();
+            BSTTree bst = new BSTTree();
 
-            bst.StartInsert(15);
-            bst.StartInsert(1);
-            bst.StartInsert(125);
-            bst.StartInsert(16);
-            bst.StartInsert(25);
-            bst.StartInsert(95);
+            bst.StartInsert(3);
+            bst.StartInsert(7);
             bst.StartInsert(5);
-            bst.StartSearch(125);
+            bst.StartInsert(18);
+            bst.StartInsert(10);
+            bst.StartInsert(9);
+            bst.StartInsert(13);
+            
 
-            //if (bst.StartSearch(1) != null) Console.WriteLine("tak");
-            //else Console.WriteLine("nie");
+            if (bst.StartSearch(25) != null) Console.WriteLine("tak");
+            else Console.WriteLine("nie");
             TreeNode minValueNode = bst.Min(bst.root);
             TreeNode maxValueNode = bst.Max(bst.root);
 
 
             Console.WriteLine("Minimalna wartość w drzewie: " + minValueNode.value);
             Console.WriteLine("Maksymalna wartość w drzewie: " + maxValueNode.value);
+            Console.WriteLine(bst.root.value);
         }
 
     }

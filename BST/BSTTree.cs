@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace BST
 {
-    public class Functions
+    public class BSTTree
     {
         public TreeNode root;
 
-        public Functions()
+        public BSTTree()
         {
             root = null;
         }
@@ -20,12 +20,12 @@ namespace BST
             return SearchSelection(root, value);
         }
 
-        private TreeNode SearchSelection(TreeNode root, int value)
+        private TreeNode SearchSelection(TreeNode x, int value)
         {
-            if (root == null) return root;
-            if (root.value == value) return root;
-            if (value < root.value) return SearchSelection(root.left, value);
-            if (value > root.value) return SearchSelection(root.right, value);
+            if (x == null) return x;
+            if (x.value == value) return x;
+            if (value < x.value) return SearchSelection(x.left, value);
+            if (value > x.value) return SearchSelection(x.right, value);
             else return null;
 
         }
@@ -55,25 +55,25 @@ namespace BST
 
         public void StartInsert(int value)
         {
-            root = InsertSelection(root, value);
+           root = InsertSelection(root, value);
         }
 
-        private TreeNode InsertSelection(TreeNode root, int value)
+        private TreeNode InsertSelection(TreeNode x, int value)
         {
-            if (root == null) 
+            if (x == null) 
             { 
-            root = new TreeNode(value);
-            return root;
+            x = new TreeNode(value);
+            return x;
             }
-            if (root.value < value)
+            if (x.value < value)
             {
-                root.left = InsertSelection(root.left, value);
+                x.right = InsertSelection(x.right, value);
             }
-            if(root.value > value)
+            if(x.value > value)
             {
-                root.right = InsertSelection(root.right, value);
+                x.left = InsertSelection(x.left, value);
             }
-            return root;
+            return x;
 
         }
 
