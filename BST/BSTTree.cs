@@ -77,6 +77,56 @@ namespace BST
 
         }
 
+        
+        public TreeNode Successor(TreeNode x)
+        {
+            if (x == null) return x;
+            if (x.right != null) return Min(x.right);
+            TreeNode successor = null;
+            TreeNode current = root;
+            while (current != null)
+            {
+                if (x.value < current.value)
+                {
+                    successor = current;
+                    current = current.left;
+                }
+                else if (x.value > current.value) current = current.right;
+                else break;
+            }
+            
+            return successor;
+        }
+
+        public TreeNode Delete(TreeNode x)
+        {
+            TreeNode z, y = null;
+            if(x.right == null || x.left == null)
+            {
+                y = x;
+            }
+            if (x.right != null && x.left == null)
+            {
+                y = x.right;
+
+            }
+            if (x.right == null && x.left != null)
+            {
+                y = x.left;
+            }
+            if (x.right != null && x.left != null)
+            {
+               
+                
+                    y = Successor(x);
+                
+            }
+
+
+            return y;
+        }
+
+
     }
 
   
