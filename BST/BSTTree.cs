@@ -98,33 +98,43 @@ namespace BST
             return successor;
         }
 
-        public TreeNode Delete(TreeNode x)
+        public void StartDelete(int value)
         {
-            TreeNode z, y = null;
-            if(x.right == null || x.left == null)
-            {
-                y = x;
-            }
-            if (x.right != null && x.left == null)
-            {
-                y = x.right;
-
-            }
-            if (x.right == null && x.left != null)
-            {
-                y = x.left;
-            }
-            if (x.right != null && x.left != null)
-            {
-               
-                
-                    y = Successor(x);
-                
-            }
-
-
-            return y;
+            root = Delete(root, value);
         }
+
+        private TreeNode Delete(TreeNode x, int value)
+        {
+            if (x == null) return x;
+            if (value < x.value)
+            {
+                x.left = Delete(x.left, value);
+            }
+            else if (value > x.value)
+            {
+                x.right = Delete(x.right, value);
+            }
+            else
+            {
+                if (x.left == null)
+                {
+                    return x.right;
+                }
+                else if (x.right == null)
+                {                  
+                    return x.left;
+                }
+
+                TreeNode successor = Min(x.right);
+
+                x.value = successor.value;
+
+                x.right = Delete(x.right, successor.value);
+            }
+
+            return x;
+        }
+
 
 
     }
